@@ -1,6 +1,7 @@
 var express = require('express');
 var cors = require('cors');
 require('dotenv').config()
+const fileRouter = require('./routes/fileAnalyse.route')
 
 var app = express();
 
@@ -11,7 +12,7 @@ app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
-
+app.use('/api/fileanalyse', fileRouter)
 
 
 const port = process.env.PORT || 3000;
